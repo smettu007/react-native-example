@@ -1,8 +1,10 @@
-import { ADD_PLACE, DELETE_PLACE } from "../actions/actionTypes";
+import {
+  ADD_PLACE,
+  DELETE_PLACE
+} from "../actions/actionTypes";
 
 const initialState = {
-  places: [],
-  selectedPlace: null
+  places: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,7 +17,7 @@ const reducer = (state = initialState, action) => {
           name: action.placeName,
           image: {
             uri:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Google_Images_2015_logo.svg/1200px-Google_Images_2015_logo.svg.png"
+              "https://c1.staticflickr.com/5/4096/4744241983_34023bf303_b.jpg"
           }
         })
       };
@@ -23,9 +25,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         places: state.places.filter(place => {
-          return place.key !== state.selectedPlace.key;
-        }),
-        selectedPlace: null
+          return place.key !== action.placeKey;
+        })
       };
     default:
       return state;

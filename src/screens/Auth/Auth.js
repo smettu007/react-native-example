@@ -1,18 +1,21 @@
-import React, { Component } from "react";
-import { View, Text, Button } from "react-native";
-import startTabs from "../MainTabs/startMainTabs";
+import React, { Component } from 'react';
+import { View, Text, Button } from 'react-native';
+
+import startMainTabs from '../MainTabs/startMainTabs';
 
 class AuthScreen extends Component {
-  loginHandler = () => {
-    startTabs();
-  };
-  render() {
-    return (
-      <View>
-        <Text> Auth text </Text>
-        <Button title="login" onPress={this.loginHandler} />
-      </View>
-    );
-  }
+    loginHandler = () => {
+        startMainTabs();
+    }
+
+    render () {
+        return (
+            <View>
+                <Text>Auth Screen</Text>
+                <Button title="Login" onPress={this.loginHandler}/>
+            </View>
+        );
+    }
 }
+
 export default AuthScreen;
